@@ -1,0 +1,2 @@
+# for sys path append (module level import not at top of file)
+ignore = ["E402"]
