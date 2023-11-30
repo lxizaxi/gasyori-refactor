@@ -25,3 +25,8 @@ class ImageUtil:
         if len(paths) != 1:
             raise Exception(f"Asset {asset_name} not specified")
         return paths[0]
+
+    @staticmethod
+    def get_asset(asset_name: str) -> MatLike:
+        asset_path: Path = ImageUtil.get_asset_path(asset_name)
+        return cv2.imread(str(asset_path), cv2.IMREAD_COLOR)

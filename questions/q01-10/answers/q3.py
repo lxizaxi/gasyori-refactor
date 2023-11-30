@@ -13,8 +13,10 @@ from cv2.typing import MatLike
 from utils.image_util import ImageUtil
 
 original_img: MatLike = ImageUtil.get_asset("imori.jpg")
+converted_img: MatLike = cv2.cvtColor(original_img, cv2.COLOR_RGB2GRAY)
 
-converted_img: MatLike = cv2.cvtColor(original_img, cv2.COLOR_RGB2BGR)
-ImageUtil.show_image_cv2(converted_img, title="Original Image")
+
+_, binary_image = cv2.threshold(converted_img, 128, 255, cv2.THRESH_BINARY)
+ImageUtil.show_image_cv2(binary_image, title="Original Image")
 
 # %%
